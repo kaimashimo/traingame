@@ -22,7 +22,7 @@ def parenthesized (exprs):
                     for op in op_chars:
                         yield '%s%s%s' % (x, op, y)
 
-st.write('#Train Game Solver')
+st.write('# Train Game Solver')
 
 s = st.text_input('Write your four digit number here:')
 
@@ -49,4 +49,10 @@ if validate_input(s):
             pass
 
     results = sorted(list(set(results)))
-    st.write(results)
+    if results:
+        st.success('it is solvable!')
+        go = st.button('see answers')
+        if go:
+            st.write(results)
+    else:
+        st.error('not solvable :(')
